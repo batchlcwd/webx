@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <h1>Welcome to my contact page</h1>
+    <p>If you have any query :</p>
+    <p>Please fill this form</p>
+    <!-- Conact Form #Start -->
+    <form action="contact_form.html" method="get">
+      <!-- Name field -->
+      <div>
+        <fieldset>
+          <legend>Name field</legend>
+          <label for="name">Name</label>
+          <input
+            minlength="5"
+            name="username"
+            id="name"
+            type="text"
+            placeholder="Enter name here"
+          />
+        </fieldset>
+      </div>
+
+      <!-- email field -->
+      <div>
+        <label for="email">Email</label>
+        <input
+          name="email"
+          id="email"
+          type="email"
+          placeholder="Enter email here"
+        />
+      </div>
+
+      <!-- password field -->
+      <div>
+        <label for="password">Password</label>
+        <input
+          name="password"
+          id="password"
+          type="password"
+          placeholder="Enter password here"
+        />
+      </div>
+
+      <!-- gender field-->
+      <div>
+        Gender:
+        <input id="male" type="radio" name="gender" />
+        <label for="male">Male</label>
+
+        <input id="female" type="radio" name="gender" />
+        <label for="female">Female</label>
+      </div>
+
+      <!-- dateof birth -->
+      <div>
+        <label for="dob">DOB</label>
+        <input type="date" placeholder="Enter the dob" />
+      </div>
+
+      <!-- hobby  -->
+      <div>
+        Hobbies:
+        <input id="playling_cricket" type="checkbox" />
+        <label for="playling_cricket">Playing Cricket</label>
+
+        <input id="reading_book" type="checkbox" />
+        <label for="reading_book">Reading Book</label>
+
+        <input id="coding" type="checkbox" />
+        <label for="coding">Coding</label>
+      </div>
+
+      <!-- file upload -->
+      <div>
+        <label for="file_upload">Upload file if any:</label>
+        <input type="file" />
+      </div>
+
+      <!-- color chooser -->
+      <div>
+        <label for="color">Choose your favorite color:</label>
+        <input type="color" />
+      </div>
+
+      <!-- address -->
+      <div>
+        <label for="address">Address</label>
+        <textarea
+          name="address"
+          id="address"
+          placeholder="Enter address here"
+        ></textarea>
+      </div>
+
+      <!-- Programming language -->
+      <label for="language">Select Language</label>
+      <select name="pref_lang" id="language">
+        <option disabled selected>---Enter your languate--</option>
+        <option value="c">C</option>
+        <option value="cpp">C++</option>
+        <option value="java">Java</option>
+        <option value="python">Python</option>
+      </select>
+
+      <!-- buttons -->
+      <div>
+        <!-- <input type="submit" value="Submit Form" /> -->
+        <button type="submit">Submit this form</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </body>
+</html>
