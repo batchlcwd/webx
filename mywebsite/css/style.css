@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.input_text {
+  color: blue;
+  transition: all 250ms linear;
+}
+
+.input_text:focus {
+  background-color: #040101;
+  color: white;
+  padding: 10px;
+}
+
+#main_heading {
+  color: rgb(43, 237, 159);
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
