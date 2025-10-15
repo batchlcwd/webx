@@ -3,6 +3,12 @@
 * {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
+  /* This makes the width include padding and border automatically. */
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
 }
 
 .input_text {
@@ -22,4 +28,57 @@
   padding: 10px;
   border-radius: 10px;
   text-align: center;
+}
+/* 
+.box {
+  background-color: coral;
+  height: 500px;
+  width: 400px;
+}
+
+.parent {
+  font-size: 16px;
+}
+
+.list1 {
+  font-size: 1rem;
+} */
+
+.parent_box {
+  background-color: orange;
+  /* height: 400px; */
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  /* align items horizontally */
+  justify-content: center;
+  /* align items vertically */
+  align-items: center;
+  /* wrap */
+
+  /* justify-content: center;
+  align-items: center; */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: lightgreen;
+  border: 20px solid black;
+  padding: 5px;
+  /* padding: 10px 30px;
+  margin: 40px 10px; */
+}
+
+/* .box-child {
+  height: 100%;
+  width: 100%;
+  background-color: skyblue;
+} */
+
+.box1 {
+  background-color: red;
+  flex-grow: 1;
 }
