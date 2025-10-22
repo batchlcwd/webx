@@ -3,112 +3,84 @@
   <head>
     <title>Krishna | Home Page</title>
 
-    <style>
-      /* css apply: target element */
-      /* selectors: helps us to select elements */
-
-      /* n number: */
-
-      /* 
-      1. Universal selector--all element
-        eg
-           * {
-        color: red;
-      }
-
-
-      2. Element elector
-      h1{
-
-      }
-      
-       h1 {
-        color: red;
-      }
-
-      3. ID Selector
-
-
-       #heading1 {
-        color: red;
-      }
-
-      4. class selector
-      group the elements
-
-      5. Pseudo selectors
-
-      
-      */
-
-      /* .heading_group_1 {
-        color: rgb(49, 244, 104);
-        background-color: black;
-        padding: 10px;
-        border-radius: 10px;
-      }
-
-      .heading_group_1:hover {
-        color: orange;
-        cursor: pointer;
-      } */
-    </style>
-
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="css/webstyle.css" />
   </head>
   <body>
+    <!-- this is navbar -->
+    <nav class="navbar">
+      <!-- brand name -->
+      <div class="brand">
+        <img src="images/lcwd_logo.webp" class="brand_logo" alt="" />
+        <span class="brand_name">Monoj Developer</span>
+      </div>
+
+      <!-- space -->
+
+      <div class="main_right_link">
+        <!-- menu links -->
+        <div class="links">
+          <a href="index.html">Home</a>
+          <a href="service.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- buttons -->
+        <div>
+          <button class="button">Login</button>
+          <button class="button">Signup</button>
+        </div>
+      </div>
+    </nav>
+
     <!-- <h1 class="heading_group_1">First</h1>
     <h1 class="heading_group_1">Second</h1> -->
     <!-- 
     <h1>third</h1>
     <h1>fourth</h1> -->
 
-    <a href="about.html">Go to About page</a>
+    <!-- <a href="about.html">Go to About page</a>
     <a href="contact.html">Contact Us</a>
-    <a href="service.html">Services</a>
+    <a href="service.html">Services</a> -->
     <!-- container tags -->
-    <h1 id="main_heading">
-      <u>Welcome to My Website</u>
-    </h1>
-    <h2>Find about me</h2>
-    <h3>You can know more about me</h3>
-    <h4>Ok .. i am developer</h4>
-    <p>I am front developer with knowledge of html, css, js, react.</p>
-    <p><strong>I am also backend developer.</strong></p>
-    <p><i>I am also DevOps Engineer.</i></p>
-    <p>
-      <em><u>We are 3 people team.</u></em>
-    </p>
-    <button>Go to youtube</button>
-    <h1 id="heading2">Ok Thanks</h1>
+
+    <!-- hero section -->
+
+    <section class="hero_section ">
+      <div class="hero_content">
+        <h1>Welcome to Monoj Developer</h1>
+        <p>Your gateway to web development excellence.</p>
+        <a href="service.html" class="hero_button button"
+          >Explore Our Services</a
+        >
+      </div>
+    </section>
+
+    <!-- END hero section -->
+
+    <!-- Services Section -->
+
+    <section class="services_section">
+      <h2>Our Services</h2>
+      <p>We are best in web development, SEO, and content creation...</p>
+      <div class="services_container">
+        <div class="service_item">
+          <h3>Web Development</h3>
+          <p>Building responsive and modern websites.</p>
+        </div>
+        <div class="service_item">
+          <h3>SEO Optimization</h3>
+          <p>Improving your website's visibility on search engines.</p>
+        </div>
+        <div class="service_item">
+          <h3>Content Creation</h3>
+          <p>Crafting engaging content for your audience.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- self closing tag / no container tags
      -->
-    <br />
-    <hr />
-    <img
-      src="images/lcwd_logo.webp"
-      alt="logo of learn code with durgesh"
-      height="300"
-      width="300"
-      title="Learn Code With Durgesh"
-    />
-    <p>This is logo of Learn Code With Durgesh</p>
-
-    <img
-      title="Youtube Thumbnails"
-      src="images/dmr.png"
-      alt="Youtube Thumbnails"
-      width="300"
-    />
-    <p>This is one example of youtube thumbnails</p>
-
-    <video width="400" controls>
-      <source src="videos/GMT20251003-154448_Recording_1920x1080.mp4" />
-    </video>
-
-    <!-- <audio>
-      <source src="" />
-    </audio> -->
   </body>
 </html>

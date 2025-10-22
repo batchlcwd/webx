@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  box-sizing: border-box;
+}
+/* box model: */
+/* css variables */
+:root {
+  --primary-color: #3f51b5;
+  --secondary-color: #e8eaf6;
+  --main-background: #e2e2e2;
+  --radius: 10px;
+  --border: #e5e7eb;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  --text: #1f2937;
+  --dark-text: #fff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--main-background);
+  color: var(--text);
+  font-family: "Saira", sans-serif;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 20px;
+}
+
+/* navbar */
+.navbar {
+  /* border: 1px solid #1f2937; */
+  display: flex;
+  height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 40px;
+  background-color: var(--primary-color);
+  color: var(--dark-text);
+}
+
+.navbar .brand_name {
+  color: var(--dark-text);
+  font-size: 1.5rem;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 10px;
+}
+.navbar .links a {
+  text-decoration: none;
+  color: var(--dark-text);
+}
+
+.navbar .links a:hover {
+  text-decoration: none;
+  color: wheat;
+}
+
+.button {
+  background-color: var(--secondary-color);
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.main_right_link {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar .brand_logo {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar .brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: row-reverse;
+}
+/* END Navbar */
+
+/* hero section */
+
+.hero_section {
+  height: 600px;
+  /* background-color: var(--primary-color); */
+  background: url("../images/website_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--dark-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero_content {
+  /* border: 1px solid white; */
+  height: fit-content;
+  text-align: center;
+}
+
+/* services */
+
+.services_section {
+  padding: 60px 20px;
+  background-color: var(--secondary-color);
+}
+
+.services_section h2,
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.services_container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.services_container .service_item {
+  background-color: var(--dark-text);
+  color: var(--text);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  text-align: center;
+}
