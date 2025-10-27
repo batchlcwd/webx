@@ -1,49 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services we provide</title>
-     <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-    <h1>Our Services</h1>
-    <p>We offer a variety of services to help you achieve your goals.</p>
-    <ul class="parent">
-        <li class="list1">Web Development</li>
-        <li>Mobile App Development</li>
-        <li>UI/UX Design</li>
-        <li>Digital Marketing</li>
-    </ul>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav
+      class="bg-indigo-700 lg:px-20 flex flex-col md:flex-row justify-between items-center md:h-16 py-5"
+    >
+      <div class="flex gap-2">
+        <img src="images/lcwd_logo.webp" class="h-9 w-9" alt="" />
+        <h1 class="text-gray-50 text-2xl font-semibold">Monoj Developer</h1>
+      </div>
 
+      <div class="flex items-center gap-5">
+        <div class="flex gap-5">
+          <a class="text-white" href="index.html">Home</a>
+          <a class="text-white" href="service.html">Services</a>
+          <a class="text-white" href="about.html">About</a>
+          <a class="text-white" href="contact.html">Contact</a>
+        </div>
+        <div>
+          <button
+            class="text-white bg-gray-900 px-3 py-2 rounded hover:bg-gray-50 hover:text-black transition-all cursor-pointer"
+          >
+            Login
+          </button>
+          <button
+            class="text-white bg-gray-900 px-3 py-2 rounded hover:bg-gray-50 hover:text-black transition-all cursor-pointer"
+          >
+            Signup
+          </button>
+        </div>
+      </div>
+    </nav>
 
-    <div class="parent_box">
-                        <div class="box  box1">
-                        1
-                        </div>
+    <!-- banner section -->
+    <section
+      class="h-[300px] md:h-[400px] lg:h-[600px] bg-gray-800 flex flex-col gap-3 items-center justify-center"
+    >
+      <h1 class="text-white text-4xl font-bold">Services we provide</h1>
+      <p class="text-white font-plain text-normal">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, molestiae.
+      </p>
+      <button
+        class="text-black bg-gray-50 px-3 py-2 rounded hover:bg-gray-900 hover:text-white transition-all cursor-pointer"
+      >
+        Start Learning
+      </button>
+    </section>
 
-                        <div class="box">
-                            2
-                        </div>
-
-                        <div class="box">
-                            3
-                        </div>
-                         <div class="box">
-                            4
-                        </div>
-                         <div class="box">
-                            5
-                        </div>
-                         <div class="box">
-                            6
-                        </div>
-    </div>
-
-  
-</body>
-</html>
-
-    
-</body>
+    <section class="flex flex-col gap-3 items-center justify-center py-10">
+      <h1 class="text-black text-3xl">Services</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, iste?
+      </p>
+      <div class="card_container flex gap-10 flex-wrap">
+        <div class=" p-5 rounded-lg shadow-lg bg-gray-900 text-white flex flex-col gap-3">
+          <h1 class="text-2xl text-center">Mobile Developer</h1>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+            recusandae!
+          </p>
+          <button class="px-3 py-2 rounded-lg bg-gray-50 text-gray-800">More</button>
+        </div>
+        <div class=" p-5 rounded-lg shadow-lg bg-gray-900 text-white flex flex-col gap-3">
+          <h1 class="text-2xl text-center">Mobile Developer</h1>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+            recusandae!
+          </p>
+          <button class="px-3 py-2 rounded-lg bg-gray-50 text-gray-800">More</button>
+        </div>
+        <div class=" p-5 rounded-lg shadow-lg bg-gray-900 text-white flex flex-col gap-3">
+          <h1 class="text-2xl text-center">Mobile Developer</h1>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+            recusandae!
+          </p>
+          <button class="px-3 py-2 rounded-lg bg-gray-50 text-gray-800">More</button>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
