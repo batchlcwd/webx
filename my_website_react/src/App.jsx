@@ -1,5 +1,6 @@
 import MyButton from "./components/Button";
 import Card from "./components/Card";
+import Courses from "./components/Courses";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Profile from "./components/Profile";
@@ -7,6 +8,7 @@ import Profile from "./components/Profile";
 function App() {
   return (
     <div className="p-2">
+      <Courses />
       <Header />
       <h1>React Js basics app</h1>
       <p>This is app for learning react basics</p>
