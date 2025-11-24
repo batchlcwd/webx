@@ -1,6 +1,11 @@
 import React from "react";
 
-function PrimaryButton({ text = "Primary Default Text", clickFunction }) {
+function PrimaryButton({
+  text = "Primary Default Text",
+  type = "button",
+  classes = "bg-orange-600 hover:bg-orange-500 text-white",
+  clickFunction,
+}) {
   function handleClick() {
     if (clickFunction) {
       clickFunction();
@@ -9,8 +14,9 @@ function PrimaryButton({ text = "Primary Default Text", clickFunction }) {
 
   return (
     <button
+      type={type}
       onClick={handleClick}
-      className="bg-orange-600 text-white px-3 py-1 rounded-xl text-xl cursor-pointer hover:bg-orange-500 transition-all duration-150"
+      className={`px-3 py-1 rounded  cursor-pointer  transition-all duration-150 ${classes}`}
     >
       {text}
     </button>

@@ -9,9 +9,10 @@ function ExpenseCard({ expense }) {
       <div className="flex justify-between">
         <p>Amount ₹ {expense.amount}</p>
         <p className="px-2 text-sm py-1 bg-orange-500 rounded-full">
-          Mode {expense.mode}
+          Mode {expense.paymentMode}
         </p>
       </div>
+      <p className="text-sm">Spent on {expense.date.toLocaleString()} </p>
       <MdClose
         size={25}
         className="hover:bg-gray-700 hover:rounded-full absolute right-5 top-5"

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header({ toggleShowExpenses }) {
+function Header({ toggleHeader, x }) {
   return (
     <nav className="bg-neutral-900 py-4 text-neutral-100 flex justify-between items-center px-1 lg:px-40">
       {/* brand name */}
@@ -13,7 +13,7 @@ function Header({ toggleShowExpenses }) {
         <a
           className="cursor-pointer hover:text-neutral-500"
           onClick={() => {
-            toggleShowExpenses(false);
+            toggleHeader(false);
           }}
         >
           Add
@@ -21,7 +21,7 @@ function Header({ toggleShowExpenses }) {
         <a
           className="cursor-pointer hover:text-neutral-500"
           onClick={() => {
-            toggleShowExpenses(true);
+            toggleHeader(true);
           }}
         >
           View
