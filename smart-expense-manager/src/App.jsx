@@ -1,11 +1,13 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useState, useEffect } from "react";
 import "./App.css";
-import MyButton from "./components/MyButton";
 import Header from "./components/Header";
 import ViewExpenses from "./components/ViewExpenses";
 import AddExpense from "./components/AddExpense";
+import toast, { Toaster } from "react-hot-toast";
+import {
+  addExpensesToLocal,
+  getExpensesFromLocal,
+} from "./services/LocalStorageService";
 
 function App() {
   const [expenses, setExpenses] = useState([
@@ -18,6 +20,21 @@ function App() {
     },
   ]);
 
+  const [firstTime, setFirstTime] = useState(true);
+
+  //localstorage sync
+  useEffect(() => {
+    if (firstTime) {
+      console.log("app loaded..");
+      console.log(expenses);
+      const exps = getExpensesFromLocal();
+      if (exps) setExpenses(exps);
+      setFirstTime(false);
+    } else {
+      addExpensesToLocal(expenses);
+    }
+  }, [expenses]);
+
   const [showExpense, setShowExpense] = useState(true);
 
   function toggleShowExpenses(value) {
@@ -26,10 +43,12 @@ function App() {
 
   function addExpense(expense) {
     setExpenses([...expenses, expense]);
+    toast.success("Expense Added");
   }
 
   return (
     <>
+      <Toaster position="top-center" />
       <Header x={16} toggleHeader={toggleShowExpenses} />
       {showExpense ? (
         <ViewExpenses expenses={expenses} />

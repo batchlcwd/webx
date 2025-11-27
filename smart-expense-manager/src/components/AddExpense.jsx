@@ -3,6 +3,7 @@ import { BiDollar } from "react-icons/bi";
 import { CgAdd } from "react-icons/cg";
 import MyButton from "./MyButton";
 import PrimaryButton from "./PrimaryButton";
+import toast from "react-hot-toast";
 
 function todayISO() {
   console.log(new Date().toISOString());
@@ -16,6 +17,15 @@ function AddExpense({ addExpenseFun }) {
     amount: 10,
     paymentMode: "upi",
     date: todayISO(),
+  });
+
+  const [error, setError] = useState({
+    title: "",
+    description: "",
+    amount: "",
+    paymentMode: "",
+    date: "",
+    isError: false,
   });
 
   /*
@@ -38,8 +48,62 @@ function AddExpense({ addExpenseFun }) {
   function handleFormSubmit(event) {
     event.preventDefault();
     console.log(formData);
+
+    let errorLocal = {
+      title: "",
+      description: "",
+      amount: "",
+      paymentMode: "",
+      date: "",
+      isError: false,
+    };
+
+    if (formData.title.trim() === "") {
+      //title
+      errorLocal.title = "Name is required !!";
+      errorLocal.isError = true;
+    }
+
+    if (formData.description.trim() === "") {
+      errorLocal.description = "Description is required !!";
+      errorLocal.isError = true;
+    }
+
+    if (formData.amount === "") {
+      errorLocal.amount = "Invalid amount";
+      errorLocal.isError = true;
+    } else if (formData.amount <= 0) {
+      errorLocal.amount = "Amount cannot be negative Value !!";
+      errorLocal.isError = true;
+    }
+
+    //validation
+
+    // if (formData.title.trim() === "") {
+    //   toast.error("Title required !!");
+    //   return;
+    // } else if (formData.title.length < 4) {
+    //   toast.error("Title must be atleast 5 characters");
+    //   return;
+    // }
+
+    // //description validations
+
+    // if (formData.description.trim() === "") {
+    //   toast.error("Description required !!");
+    //   return;
+    // }
+
+    //set global
+    setError({ ...errorLocal });
+
+    if (errorLocal.isError) {
+      toast.error("Your form is invalid");
+      return;
+    }
+
     addExpenseFun(formData);
-    alert("Expese added");
+    // alert("Expese added");
     setFormData({
       title: "",
       description: "",
@@ -56,8 +120,13 @@ function AddExpense({ addExpenseFun }) {
         <p className="font-light">
           Add your expense detail here by filling this form..
         </p>
+        {error.isError && (
+          <p className="text-red-600 py-4 border rounded my-2 px-2">
+            You form has an error, Form is Invalid
+          </p>
+        )}
         {/* {JSON.stringify(formData)} */}
-        <form onSubmit={handleFormSubmit}>
+        <form noValidate onSubmit={handleFormSubmit}>
           <div className="mt-5 flex flex-col gap-4">
             {/* expense title */}
             <div>
@@ -77,6 +146,9 @@ function AddExpense({ addExpenseFun }) {
                 value={formData.title}
                 required
               />
+              {error.title && (
+                <p className="text-red-500 mt-1 pl-2">{error.title}</p>
+              )}
             </div>
 
             {/* Expense desc */}
@@ -95,6 +167,9 @@ function AddExpense({ addExpenseFun }) {
                 onChange={handleChange}
                 value={formData.description}
               ></textarea>
+              {error.description && (
+                <p className="text-red-500 mt-1 pl-2">{error.description}</p>
+              )}
             </div>
 
             {/* amount + mode */}
@@ -117,6 +192,9 @@ function AddExpense({ addExpenseFun }) {
                   value={formData.amount}
                   required
                 />
+                {error.amount && (
+                  <p className="text-red-500 mt-1 pl-2">{error.amount}</p>
+                )}
               </div>
               <div className="flex-1">
                 {/* payment mode */}
@@ -138,6 +216,9 @@ function AddExpense({ addExpenseFun }) {
                   <option value="card">💳Card</option>
                   <option value="cash">💵Cash</option>
                 </select>
+                {error.paymentMode && (
+                  <p className="text-red-500 mt-1 pl-2">{error.paymentMode}</p>
+                )}
               </div>
             </div>
 
@@ -159,6 +240,9 @@ function AddExpense({ addExpenseFun }) {
                 value={formData.date}
                 required
               />
+              {error.date && (
+                <p className="text-red-500 mt-1 pl-2">{error.date}</p>
+              )}
             </div>
             {/* buttons */}
             <div className="flex justify-center gap-2">
