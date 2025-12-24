@@ -1,10 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement, reset } from "../redux/counter/actions";
 import { login, logout } from "../redux/auth/authSlice";
+import { loginThunk } from "../redux/auth/authThunk";
 const Action = () => {
   const dispatch = useDispatch();
-
+  const loading = useSelector((state) => state.loading);
   return (
     <div className="flex gap-2">
       <button
@@ -35,15 +36,18 @@ const Action = () => {
       <button
         onClick={() => {
           dispatch(
-            login({
-              name: "Saurabh",
-              email: "srb@dev.in",
+            loginThunk({
+              id: 1,
+              title: "foo",
+              body: "bar",
+              userId: 1,
             })
           );
         }}
+        disabled={loading}
         className="cursor-pointer bg-slate-800 py-2 px-4 rounded-md"
       >
-        Login
+        {loading ? "Loading..." : "Login"}
       </button>
 
       <button

@@ -2,6 +2,7 @@ import "./App.css";
 import Action from "./components/Action";
 import { useSelector } from "react-redux";
 import Navbar from "./components/Navbar";
+import FetchEx from "./components/FetchEx";
 
 function App() {
   const count = useSelector((state) => state.count);
@@ -24,12 +25,16 @@ function App() {
           )}
           {user && (
             <>
-              <h1 className="text-2xl font-semifont">Hello , {user.name}</h1>
+              <h1 className="text-2xl font-semifont">Hello , {user.title}</h1>
               <h1 className="text-2xl font-semifont">
-                you can contact me on , {user.email}
+                you can contact me on , {user.body}
               </h1>
             </>
           )}
+        </div>
+        <div>
+          <h1 className="text-3xl text-center">Fetch Example</h1>
+          <FetchEx />
         </div>
       </div>
     </>
