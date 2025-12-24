@@ -10,6 +10,7 @@ import AppLayout from "./pages/AppLayout.jsx";
 import Dashboard from "./pages/users/Dashboard.jsx";
 import Home from "./pages/users/Home.jsx";
 import Userprofile from "./pages/users/Userprofile.jsx";
+import Userabout from "./pages/users/Userabout.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="user/about/:userid" element={<Userabout />} />
         <Route path="dashboard" element={<Dashboard />}>
           <Route index element={<Home />} />
           <Route path="profile" element={<Userprofile />} />

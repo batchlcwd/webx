@@ -25,7 +25,10 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/about"} className="hover:text-cyan-400 transition">
+            <NavLink
+              to={`/user/about/123`}
+              className="hover:text-cyan-400 transition"
+            >
               About
             </NavLink>
           </li>

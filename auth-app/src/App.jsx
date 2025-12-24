@@ -127,6 +127,8 @@ function App() {
         </a>
       </section>
 
+
+
       {/* ------------------- FOOTER ------------------- */}
       <footer className="py-6 text-center text-gray-400 border-t border-white/10">
         <p>© {new Date().getFullYear()} AuthVerse. All rights reserved.</p>

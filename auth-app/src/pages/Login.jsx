@@ -1,6 +1,8 @@
 import React from "react";
+import { useSearchParams } from "react-router";
 
 const Login = () => {
+  const [searchParams] = useSearchParams();
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-neutral-900 to-gray-900 text-white px-6">
       {/* Card */}
@@ -9,6 +11,10 @@ const Login = () => {
         <h1 className="text-3xl font-extrabold text-center">Welcome Back</h1>
         <p className="text-gray-300 text-center mt-2">
           Login to access your account
+        </p>
+
+        <p className="pt-2 text-center text-red-500">
+          {searchParams.get("error")}
         </p>
 
         {/* Form */}
