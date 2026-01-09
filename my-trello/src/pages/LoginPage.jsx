@@ -1,22 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { loginUser } from "@/features/auth/authService";
 import toast from "react-hot-toast";
 import { Spinner } from "@/components/ui/spinner";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "@/features/auth/authSlice";
 
 function LoginPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { loading, sessionId, error } = useSelector((state) => state.auth);
+
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
 
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (sessionId) {
+      navigate("/dashboard");
+    }
+  }, [sessionId]);
 
   function handleInputChange(event) {
     setLoginData((prev) => ({
@@ -28,18 +38,14 @@ function LoginPage() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    try {
-      setLoading(true);
-      const response = await loginUser(loginData);
-      console.log(response);
-      toast.success("login success");
-    } catch (error) {
-      console.log(error);
-      setError(error);
-      toast.error("login error");
-    } finally {
-      setLoading(false);
-    }
+    // setLoading(true);
+    // const response = await loginUser(loginData);
+    // console.log(response);
+    //current user--> global state:
+
+    dispatch(login(loginData));
+
+    toast.success("login success");
   }
 
   return (

@@ -34,7 +34,18 @@ export async function loginUser({ email, password }) {
  */
 
 export async function logoutUser(sessionId) {
+  console.log(sessionId);
   return await account.deleteSession({
-    sessionId,
+    sessionId: "current",
   });
+}
+
+// get the current user info:
+export async function getCurrentUser() {
+  try {
+    return await account.get();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 }
