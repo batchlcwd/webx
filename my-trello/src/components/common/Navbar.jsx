@@ -7,7 +7,7 @@ function Navbar() {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   return (
-    <navbar className="flex justify-around h-20  border-b items-center">
+    <navbar className="flex justify-between px-10 h-20  border-b items-center">
       <div>
         <span className="text-3xl font-semibold">MyTrello</span>
       </div>

@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBoards } from "@/features/board/boardSlice";
 import { Button } from "../ui/button";
 import { Spinner } from "../ui/spinner";
-
-function BoardList() {
+import { setSelectedBoard } from "@/features/board/boardSlice";
+function BoardList({ setModelOpen }) {
   const dispatch = useDispatch();
 
-  const { boards, loading, error } = useSelector((state) => state.board);
+  const { boards, loading, error, selectedBoard } = useSelector(
+    (state) => state.board
+  );
   const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
@@ -44,6 +46,13 @@ function BoardList() {
         {boards?.rows?.length > 0 ? (
           boards.rows.map((board) => (
             <Button
+              onClick={() =>
+                dispatch(
+                  setSelectedBoard({
+                    ...board,
+                  })
+                )
+              }
               key={board.$id}
               variant="ghost"
               className="w-full justify-start font-normal text-sm hover:bg-muted"
@@ -60,7 +69,11 @@ function BoardList() {
 
       {/* Footer */}
       <div className="p-3 border-t">
-        <Button variant="outline" className="w-full text-sm">
+        <Button
+          onClick={() => setModelOpen(true)}
+          variant="outline"
+          className="w-full text-sm"
+        >
           + Create Board
         </Button>
       </div>
