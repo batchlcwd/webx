@@ -14,3 +14,4 @@ export { ID } from "appwrite";
 export const DB_ID = import.meta.env.VITE_DATABASE_ID;
 export const BOARD_TABLE_ID = import.meta.env.VITE_BOARD_TABLE_ID;
 export const LIST_TABLE_ID = import.meta.env.VITE_LIST_TABLE_ID;
+export const TASK_TABLE_ID = import.meta.env.VITE_TASK_TABLE_ID;
