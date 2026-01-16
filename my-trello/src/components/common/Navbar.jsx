@@ -3,6 +3,8 @@ import { Button } from "../ui/button";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/features/auth/authSlice";
 
+import { ModeToggle } from "../theme/mode-toggle";
+
 function Navbar() {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -11,7 +13,8 @@ function Navbar() {
       <div>
         <span className="text-3xl font-semibold">MyTrello</span>
       </div>
-      <div className="flex gap-3">
+      <div className="flex gap-3 items-center">
+        <ModeToggle />
         <Button variant="outline">{user?.name}</Button>
         <Button
           onClick={() => {

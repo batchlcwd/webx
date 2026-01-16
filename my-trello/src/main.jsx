@@ -13,21 +13,25 @@ import { store } from "./store";
 import DashboardLayout from "./pages/user/DashboardLayout";
 import DashboardHome from "./pages/user/DashboardHome";
 
+import { ThemeProvider } from "./components/theme/theme-provider";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <Routes>
-          <Route path="/" element={<AppLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/dashboard" element={<DashboardLayout />}>
-              <Route index element={<DashboardHome />} />
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <BrowserRouter>
+        <Provider store={store}>
+          <Routes>
+            <Route path="/" element={<AppLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="/dashboard" element={<DashboardLayout />}>
+                <Route index element={<DashboardHome />} />
+              </Route>
             </Route>
-          </Route>
-        </Routes>
-      </Provider>
-    </BrowserRouter>
+          </Routes>
+        </Provider>
+      </BrowserRouter>
+    </ThemeProvider>
   </StrictMode>
 );
