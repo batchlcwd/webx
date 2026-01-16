@@ -17,8 +17,9 @@ function Navbar() {
         <ModeToggle />
         <Button variant="outline">{user?.name}</Button>
         <Button
-          onClick={() => {
-            dispatch(logout());
+          onClick={async () => {
+            await dispatch(logout()).unwrap();
+            window.location.reload();
           }}
           className={"cursor-pointer"}
         >
