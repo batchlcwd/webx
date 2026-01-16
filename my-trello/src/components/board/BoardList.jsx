@@ -54,8 +54,9 @@ function BoardList({ setModelOpen }) {
                 )
               }
               key={board.$id}
-              variant="ghost"
-              className="w-full justify-start font-normal text-sm hover:bg-muted"
+              variant={selectedBoard?.$id === board.$id ? "secondary" : "ghost"}
+              className={`w-full justify-start font-normal text-sm ${selectedBoard?.$id === board.$id ? "bg-secondary" : ""
+                }`}
             >
               {board.name}
             </Button>

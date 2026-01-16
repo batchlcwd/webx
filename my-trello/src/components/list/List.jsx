@@ -27,6 +27,7 @@ function List() {
   const [isAddingList, setIsAddingList] = useState(false);
   const [newListTitle, setNewListTitle] = useState("");
   const [activeTask, setActiveTask] = useState(null);
+  const [originalListId, setOriginalListId] = useState(null);
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -65,6 +66,7 @@ function List() {
     const { active } = event;
     const { task } = active.data.current;
     setActiveTask(task);
+    setOriginalListId(findContainer(active.id));
   };
 
   const handleDragOver = (event) => {
@@ -127,6 +129,7 @@ function List() {
     const { active, over } = event;
     const { task } = active.data.current;
     setActiveTask(null);
+    setOriginalListId(null);
 
     if (!over) return;
 
@@ -143,21 +146,11 @@ function List() {
       const activeIndex = activeItems.findIndex((t) => t.$id === active.id);
       const overIndex = overItems.findIndex((t) => t.$id === over.id);
 
-      if (activeContainer !== overContainer) {
-        // Already moved in DragOver, just need to persist
-        // But wait, DragOver updates state, so activeContainer IS the new container now?
-        // No, findContainer searches in current state.
-        // If DragOver updated state, then activeContainer IS overContainer.
-        // So we just need to persist the listId change.
-        // But wait, if DragOver updated state, `task.listId` in Redux is already updated.
-        // We need to call API.
-
-        // Actually, let's look at how tasks are stored.
-        // If I updated Redux in DragOver, the task is now in the new list.
-        // So I just need to ensure the backend knows.
-        // The task object in Redux has the new listId (set in reducer).
-        dispatch(updateTaskThunk({ taskId: task.$id, data: { listId: overContainer } }));
-
+      // Check if task moved to a different list
+      if (originalListId && originalListId !== overContainer) {
+        dispatch(
+          updateTaskThunk({ taskId: task.$id, data: { listId: overContainer } })
+        );
       } else if (activeIndex !== overIndex) {
         // Reorder in same list
         dispatch(
@@ -168,7 +161,6 @@ function List() {
             destIndex: overIndex,
           })
         );
-        // Persist order if we had an order field
       }
     }
   };
