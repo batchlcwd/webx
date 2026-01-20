@@ -8,6 +8,7 @@ import { NavLink } from "react-router";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* <img src="" loading="lazy" alt="" /> */}
       <HeroSection />
       <FeaturesSection />
       <WorkflowSection />

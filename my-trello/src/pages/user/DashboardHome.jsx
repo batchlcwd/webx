@@ -4,11 +4,12 @@ import BoardList from "@/components/board/BoardList";
 import BoardModel from "@/components/board/BoardModel";
 import List from "@/components/list/List";
 
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+// const Chart = React.lazy(() => import("react-chartjs-2"));
+// <Suspense fallback={<div>Loading Chart...</div>}>
+//   <Chart data={data} />
+// </Suspense>
+
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
