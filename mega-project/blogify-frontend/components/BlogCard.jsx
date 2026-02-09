@@ -8,12 +8,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock } from "lucide-react";
+import Link from "next/link";
 function BlogCard({
   title,
   short_description,
   cover_image,
   read_time,
   categories,
+  documentId,
 }) {
   return (
     <Card className="w-full  lg:w-[32%] overflow-hidden rounded-2xl shadow-sm hover:shadow-md transition-shadow">
@@ -56,9 +58,12 @@ function BlogCard({
           <Clock className="h-3.5 w-3.5" />
           <span>{read_time}</span>
         </div>
-        <span className="cursor-pointer font-medium text-primary hover:underline">
-          Read more →
-        </span>
+
+        <Link href={"/blogs/" + documentId}>
+          <span className="cursor-pointer font-medium text-primary hover:underline">
+            Read more →
+          </span>
+        </Link>
       </CardFooter>
     </Card>
   );

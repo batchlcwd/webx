@@ -30,7 +30,7 @@ const blogSlice = createSlice({
         state.blogs = action.payload.data;
         state.pagination = action.payload.meta.pagination;
         state.loading = false;
-        console.log(action.payload);
+        console.log("from slice", action.payload);
         state.error = null;
       })
       .addCase(fetchBlogs.rejected, (state, action) => {
