@@ -123,4 +123,134 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* blog posts */
+  .no-tailwind {
+    color: var(--blog-text);
+    @apply leading-relaxed text-base;
+  }
+  
+  /* Headings */
+  .no-tailwind h1 {
+    @apply text-4xl font-bold my-6;
+  }
+  
+  .no-tailwind h2 {
+    @apply text-3xl font-semibold my-6;
+  }
+  
+  .no-tailwind h3 {
+    @apply text-2xl font-semibold my-5;
+  }
+  
+  .no-tailwind h4 {
+    @apply text-xl font-semibold my-4;
+  }
+  
+  .no-tailwind h5 {
+    @apply text-lg font-medium my-3;
+  }
+  
+  .no-tailwind h6 {
+    @apply text-base font-medium uppercase tracking-wide my-3;
+  }
+  
+  /* Paragraphs */
+  .no-tailwind p {
+    @apply my-4;
+  }
+  
+  /* Links */
+  .no-tailwind a {
+    color: var(--blog-link);
+    @apply underline underline-offset-2 transition-colors;
+  }
+  
+  .no-tailwind a:hover {
+    color: var(--blog-link-hover);
+  }
+  
+  /* Images */
+  .no-tailwind img {
+    @apply my-6 rounded-lg max-w-full h-auto;
+  }
+  
+  /* Lists */
+  .no-tailwind ul {
+    @apply list-disc pl-6 my-4;
+  }
+  
+  .no-tailwind ol {
+    @apply list-decimal pl-6 my-4;
+  }
+  
+  .no-tailwind li {
+    @apply my-2;
+  }
+  
+  /* Blockquote */
+  .no-tailwind blockquote {
+    border-left-color: var(--blog-border);
+    color: var(--blog-muted);
+    @apply border-l-4 pl-4 italic my-6;
+  }
+  
+  /* Inline code */
+  .no-tailwind code {
+    background-color: var(--blog-code-bg);
+    @apply px-1 py-0.5 rounded text-sm font-mono;
+  }
+  
+  /* Code blocks */
+  .no-tailwind pre {
+    background-color: var(--blog-pre-bg);
+    color: var(--blog-pre-text);
+    @apply p-4 rounded-lg overflow-x-auto my-6;
+  }
+  
+  .no-tailwind pre code {
+    @apply bg-transparent p-0;
+  }
+  
+  /* Horizontal rule */
+  .no-tailwind hr {
+    border-color: var(--blog-border);
+    @apply my-8;
+  }
+  
+  /* Tables */
+  .no-tailwind table {
+    @apply w-full border-collapse my-6 text-sm;
+  }
+  
+  .no-tailwind thead {
+    background-color: var(--blog-table-head);
+  }
+  
+  .no-tailwind th {
+    border-color: var(--blog-border);
+    @apply border px-4 py-2 text-left font-semibold;
+  }
+  
+  .no-tailwind td {
+    border-color: var(--blog-border);
+    @apply border px-4 py-2;
+  }
+  
+  .no-tailwind tr:nth-child(even) {
+    background-color: var(--blog-table-even);
+  }
+  
+  /* Figure + caption */
+  .no-tailwind figure {
+    @apply my-6;
+  }
+  
+  .no-tailwind figcaption {
+    color: var(--blog-muted);
+    @apply text-sm mt-2 text-center;
+  }
+
 }
+
+

@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark, neobrutalism } from "@clerk/themes";
 import Providers from "./providers";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +28,12 @@ export default function RootLayout({ children }) {
         theme: dark,
       }}
     >
-      <html lang="en" className={"light"}>
+      <html lang="en" className={"dark"}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Providers>
+            <Toaster />
             <Navbar />
             {children}
           </Providers>
