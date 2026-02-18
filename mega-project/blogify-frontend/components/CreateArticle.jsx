@@ -13,6 +13,9 @@ import { useAuth } from "@clerk/nextjs";
 import toast from "react-hot-toast";
 import { Spinner } from "./ui/spinner";
 import MDEditor from "@uiw/react-md-editor";
+import { Brain } from "lucide-react";
+import { apiClient } from "@/config/axiosConfig";
+import axios from "axios";
 function CreateArticle() {
   const { isLoaded, userId, sessionId } = useAuth();
   const [categories, setCategories] = useState("");
@@ -28,6 +31,7 @@ function CreateArticle() {
     cover_image_file: null,
   });
   const [error, setError] = useState(null);
+  const [generating, setGenerating] = useState(false);
 
   const handleFormFieldChange = (event) => {
     setPost({ ...post, [event.target.name]: event.target.value });
@@ -80,16 +84,62 @@ function CreateArticle() {
     }
   };
 
+  // generate with ai function
+
+  async function generateWithAI(event) {
+    setUploading(true);
+    setGenerating(true);
+
+    try {
+      if (post.title == "" || post.short_description == "") {
+        return toast.error("Please enter title and short description");
+      }
+
+      const response = await axios.post("/api/ai/generate", {
+        title: post.title,
+        short_description: post.short_description,
+      });
+      console.log(response.data);
+      setPost({
+        ...post,
+        content: response.data.response_text,
+      });
+      toast.success("Post generated successfully");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setUploading(false);
+      setGenerating(false);
+    }
+  }
+
   return (
-    <div className="w-full lg:w-1/2  mx-auto p-6">
+    <div className="w-full lg:w-2/3 mx-auto p-6">
       <form action="" onSubmit={handleSubmit}>
         <Card className="shadow-xl rounded-2xl">
           <CardHeader>
             <CardTitle className="text-2xl font-semibold">
               <div className="flex justify-between">
                 <p>Create New Post</p>
-                <Button type="button" variant="outline">
-                  Geneate with AI
+                <Button
+                  disabled={generating}
+                  onClick={generateWithAI}
+                  className={"cursor-pointer"}
+                  type="button"
+                  variant="outline"
+                >
+                  {generating ? (
+                    <>
+                      <Spinner />
+                      Generating with AI
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      <Brain />
+                      Geneate with AI
+                    </>
+                  )}
                 </Button>
               </div>
             </CardTitle>
