@@ -6,6 +6,7 @@ import Markdown from "markdown-to-jsx";
 import Image from "next/image";
 import React from "react";
 import { formatTimeAgo } from "@/helper/date";
+import PayBlog from "@/components/PayBlog";
 async function BlogPage({ params }) {
   const { id } = await params;
 
@@ -49,9 +50,7 @@ async function BlogPage({ params }) {
         {post.is_paid ? (
           <>
             <div className="flex">
-              <Button className={"cursor-pointer"} variant="destructive">
-                Subscribe Now, to read this article
-              </Button>
+              <PayBlog />
             </div>
           </>
         ) : (

@@ -137,7 +137,7 @@ function CreateArticle() {
                     <>
                       {" "}
                       <Brain />
-                      Geneate with AI
+                      Generate with AI
                     </>
                   )}
                 </Button>
@@ -190,15 +190,31 @@ function CreateArticle() {
             </div>
 
             {/* Cover Image */}
-            <div className="space-y-2">
-              <Label>Cover Image</Label>
-              <Input
-                onChange={(event) => {
-                  setPost({ ...post, cover_image_file: event.target.files[0] });
-                }}
-                type="file"
-                accept="image/*"
-              />
+            <div className="space-y-2 flex items-center  gap-2 justify-between">
+              <div className="flex-1 ">
+                <Label>Cover Image</Label>
+                <Input
+                  className={"mt-2"}
+                  onChange={(event) => {
+                    setPost({
+                      ...post,
+                      cover_image_file: event.target.files[0],
+                    });
+                  }}
+                  type="file"
+                  accept="image/*"
+                />
+              </div>
+              <div className="w-fit">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className={"mt-3 cursor-pointer"}
+                >
+                  {" "}
+                  <Brain /> Generate Cover Image
+                </Button>
+              </div>
             </div>
 
             {/* Read Time */}

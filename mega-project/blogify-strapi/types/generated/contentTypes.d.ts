@@ -500,6 +500,38 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUserArticleUserArticle extends Struct.CollectionTypeSchema {
+  collectionName: 'user_articles';
+  info: {
+    displayName: 'UserArticlePurchase';
+    pluralName: 'user-articles';
+    singularName: 'user-article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    clerk_user_id: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-article.user-article'
+    > &
+      Schema.Attribute.Private;
+    payment_status: Schema.Attribute.String;
+    post: Schema.Attribute.Relation<'oneToOne', 'api::post.post'>;
+    publishedAt: Schema.Attribute.DateTime;
+    razorpay_order_id: Schema.Attribute.Text;
+    razorpay_payment_id: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1012,6 +1044,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
       'api::post.post': ApiPostPost;
+      'api::user-article.user-article': ApiUserArticleUserArticle;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

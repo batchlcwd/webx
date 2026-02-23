@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_articles",
+  "info": {
+    "singularName": "user-article",
+    "pluralName": "user-articles",
+    "displayName": "UserArticlePurchase"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "clerk_user_id": {
+      "type": "text"
+    },
+    "post": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::post.post"
+    },
+    "payment_status": {
+      "type": "string"
+    },
+    "razorpay_order_id": {
+      "type": "text"
+    },
+    "razorpay_payment_id": {
+      "type": "string"
+    }
+  }
+}
